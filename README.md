@@ -16,7 +16,7 @@ A modern, high-performance website for **RoboThinkLab**, built with the state-of
   7. Student Certification Accredited by RoboThinkLab
   8. AI, Python & Coding Mastery
 - **Institutional Goals (Why Partner With Us)**: 6 key advantages covering curriculum, faculty development, customized solutions, affordability, infrastructure, and proven results.
-- **About Us & Leadership**: Highlights founders **Suryansh Saxena** & **Subhan Ansari** with company vision.
+- **About Us & Leadership**: Highlights founder **Suryansh Saxena** with company vision.
 - **School Testimonials Slider**: Quotes from partner principals and academic directors with auto-slide and navigation dots.
 - **Impact Metrics**: Animated counters for 50+ partner schools, 10,000+ students trained, 100+ labs deployed, and 15+ competitions.
 - **School Partnership Inquiry Form**: Glassmorphic interactive form with input validation, designation selector, and immediate submission feedback.
