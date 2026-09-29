@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="text-scale" content="scale" />
+    <link rel="icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3e%3crect%20width='32'%20height='32'%20rx='8'%20fill='%23050505'/%3e%3cpath%20d='M6%2010h20v14H6z'%20fill='none'%20stroke='%23fff'%20stroke-width='2'/%3e%3ccircle%20cx='11'%20cy='17'%20r='2'%20fill='%233b82f6'/%3e%3ccircle%20cx='21'%20cy='17'%20r='2'%20fill='%233b82f6'/%3e%3cpath%20d='M16%206v4M13%206h6'%20stroke='%233b82f6'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/svg%3e" />
+    <meta name="title" content="RoboThinkLab - Innovative Robotics & AI Education" />
+    <meta name="description" content="RoboThinkLab brings future-ready Robotics, Artificial Intelligence, and STEAM education directly to schools, founded by Suryansh Saxena and Subhan Ansari." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#050505" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RoboThinkLab - Innovative Robotics & AI Education" />
+    <meta property="og:description" content="Empowering students with future-ready skills through turnkey school robotics labs, AI curriculum, and professional training." />
+    <meta property="twitter:card" content="summary_large_image" />
+    <title>RoboThinkLab - Future-Ready Robotics & AI Education</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div style="display: contents">
+      <!-- Custom Cursor -->
+      <div id="cursor" class="custom-cursor fixed top-0 left-0 w-5 h-5 bg-white mix-blend-difference rounded-full pointer-events-none z-[999] opacity-0 invisible transform-gpu"></div>
+
+      <!-- Floating Header Pill -->
+      <header id="main-header" class="header opacity-0 w-0 z-60 fixed top-4 left-1/2 -translate-x-1/2 bg-[#0A0A0A]/60 border border-white/10 h-[60px] pl-6 pr-2 whitespace-nowrap flex justify-between items-center backdrop-blur-xl">
+        <a id="logo" href="#agency" class="flex-shrink-0 flex items-center justify-center w-auto cursor-pointer mix-blend-difference">
+          <svg xmlns="http://www.w3.org/2000/svg" width="180" height="28" viewBox="0 0 180 28" role="img" aria-label="RoboThinkLab">
+            <!-- Sleek Robot Hex Icon -->
+            <path d="M4 8l10-6 10 6v12l-10 6-10-6V8Z" fill="none" stroke="currentColor" stroke-width="2"></path>
+            <circle cx="10" cy="14" r="1.5" fill="#3B82F6"></circle>
+            <circle cx="18" cy="14" r="1.5" fill="#3B82F6"></circle>
+            <path d="M11 18h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            <text x="32" y="19" fill="currentColor" font-family="'Inter', ui-sans-serif, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">ROBOTHINK<tspan fill="#3B82F6">LAB</tspan></text>
+          </svg>
+        </a>
+
+        <div id="nav" class="absolute left-1/2 -translate-x-1/2 hidden md:block">
+          <ul class="flex space-x-8 text-sm font-medium text-white/70">
+            <li><a href="#services" class="nav-item hover:text-white transition-colors">Services</a></li>
+            <li><a href="#disciplines" class="nav-item hover:text-white transition-colors">Disciplines</a></li>
+            <li><a href="#goals" class="nav-item hover:text-white transition-colors">Why Partner</a></li>
+            <li><a href="#about" class="nav-item hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#faq" class="nav-item hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div id="header-actions" class="flex space-x-1 sm:space-x-3 items-center z-50">
+          <a href="#contact" class="nav-cta hidden md:flex items-center justify-center text-sm font-medium bg-white text-black hover:bg-white/80 transition-colors px-6 py-2 rounded-full">Partner With Us</a>
+          <button id="menu-btn" class="cursor-pointer w-10 h-10 flex justify-center items-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors md:hidden" aria-label="Toggle navigation menu">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon lucide lucide-menu">
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0A0A0A]/85 backdrop-blur-2xl flex flex-col justify-between invisible opacity-0 px-10 pt-28 pb-10 overflow-hidden" style="clip-path: inset(0% 100% 0% 0%);">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-[#3B82F6] opacity-[0.08] blur-[100px] rounded-full pointer-events-none"></div>
+        <ul class="flex flex-col space-y-10 text-left relative z-10 my-auto">
+          <li class="overflow-hidden"><a href="#services" class="mobile-nav-link block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform">Services</a></li>
+          <li class="overflow-hidden"><a href="#disciplines" class="mobile-nav-link block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform">Disciplines</a></li>
+          <li class="overflow-hidden"><a href="#goals" class="mobile-nav-link block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform">Why Partner</a></li>
+          <li class="overflow-hidden"><a href="#about" class="mobile-nav-link block text-4xl font-sans font-light text-white/80 hover:text-white transition-colors will-change-transform">About Us</a></li>
+          <li class="overflow-hidden mt-6 pt-8 border-t border-white/10"><a href="#contact" class="mobile-nav-link inline-block text-xl font-sans text-white hover:text-white/80 transition-colors will-change-transform">Let's talk &rarr;</a></li>
+        </ul>
+        <div class="flex flex-col gap-2 text-xs font-mono text-white/40 uppercase tracking-widest relative z-10 shrink-0 sm:flex-row sm:gap-6">
+          <span>K-12 Robotics Partner</span>
+          <span>NEP 2020 Aligned</span>
+        </div>
+      </div>
+
+      <main class="app-wrapper">
+        <div class="bg-[#050505] text-white">
+
+          <!-- Hero Section -->
+          <section id="agency" class="w-full h-screen flex flex-col items-center justify-center relative overflow-hidden text-center pt-24 pb-12">
+            <div id="hero-field" class="absolute -inset-12 z-0 pointer-events-none will-change-transform hero-field">
+              <div class="absolute inset-0 bg-linear-to-b from-[#050505]/40 via-[#050505]/10 to-[#050505]"></div>
+              <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#050505_90%)]"></div>
+            </div>
+            <div class="relative z-10 w-full flex flex-col items-center justify-center px-4 h-full">
+              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 text-xs font-mono text-[#3B82F6] uppercase tracking-widest">
+                <span>●</span> Future-Ready STEAM &amp; AI Education
+              </div>
+              <h1 class="text-[14vw] md:text-[8vw] font-serif leading-[0.9] tracking-tight text-white max-w-[95vw] md:max-w-7xl mx-auto flex flex-col items-center mix-blend-difference mb-4">
+                <div class="overflow-hidden pb-6 -mb-6">
+                  <div class="hero-line flex items-center pt-4 will-change-transform">Robo</div>
+                </div>
+                <div class="overflow-hidden pb-8 -mb-8">
+                  <div class="hero-line hero-second-line flex items-center md:gap-6 will-change-transform pt-4">
+                    <span class="italic text-white/50 mr-3 md:mr-6 font-serif">Think</span> Lab.
+                  </div>
+                </div>
+              </h1>
+              <p id="hero-sub" class="text-lg md:text-2xl text-white/50 max-w-3xl mt-8 md:mt-6 font-sans font-light leading-relaxed mix-blend-difference px-4">
+                Empowering students with hands-on Robotics, Artificial Intelligence, and STEAM innovation directly in schools — architected for NEP 2020.
+              </p>
+              <div id="hero-btns" class="mt-8 flex flex-wrap justify-center gap-4 z-20">
+                <a href="#services" class="px-8 py-4 bg-white text-black rounded-full font-sans font-medium hover:bg-[#3B82F6] hover:text-white transition-all duration-500 cursor-pointer shadow-[0_0_40px_rgba(255,255,255,0.15)] inline-block">Explore Services</a>
+                <a href="#contact" class="px-8 py-4 bg-transparent text-white border border-white/20 rounded-full font-sans font-medium hover:bg-[#3B82F6] hover:border-[#3B82F6] transition-all duration-500 cursor-pointer inline-block">Partner With Us</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Vision & Manifesto Section -->
+          <section id="manifesto" class="w-full bg-[#050505] text-white py-32 md:py-48 px-6 md:px-24 flex flex-col items-center justify-center border-t border-white/5 relative">
+            <span class="text-xs font-mono text-white/30 uppercase tracking-widest mb-16 text-center">Our Vision</span>
+            <p id="manifesto-text" class="text-3xl md:text-5xl lg:text-6xl font-serif text-center max-w-5xl w-full flex flex-wrap justify-center gap-x-3 gap-y-2 md:gap-y-4">
+              <!-- Dynamically populated and animated by GSAP -->
+            </p>
+          </section>
+
+          <!-- Infinite Marquee / Tech & Partners -->
+          <section class="w-full bg-[#050505] py-16 md:py-24 overflow-hidden flex flex-col items-center justify-center border-t border-white/5 relative">
+            <div class="absolute inset-y-0 left-0 w-32 md:w-80 bg-linear-to-r from-[#050505] to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-32 md:w-80 bg-linear-to-l from-[#050505] to-transparent z-10 pointer-events-none"></div>
+            <p class="text-xs font-mono text-white/30 uppercase tracking-widest mb-10 text-center relative z-20">Technologies &amp; Frameworks We Teach</p>
+            <div class="flex overflow-hidden w-full relative z-0">
+              <div class="marquee-track flex whitespace-nowrap will-change-transform w-fit">
+                <div class="flex gap-16 md:gap-32 px-8 md:px-16 items-center">
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Robotics Labs</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Artificial Intelligence</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">NEP 2020 Aligned</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Python &amp; Coding</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Arduino &amp; IoT</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Machine Learning</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Automation</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Annual Exhibitions</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Robotics Labs</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Artificial Intelligence</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">NEP 2020 Aligned</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Python &amp; Coding</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Arduino &amp; IoT</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Machine Learning</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Automation</div>
+                  <div class="text-2xl md:text-4xl font-serif text-white/30 hover:text-white transition-colors duration-700 cursor-pointer select-none">Annual Exhibitions</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Core Disciplines Section -->
+          <section id="disciplines" class="w-full bg-[#050505] text-white py-32 md:py-48 border-t border-white/5 relative z-10 overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#3B82F6] opacity-[0.02] blur-[200px] rounded-full pointer-events-none"></div>
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col items-center">
+              <span class="text-xs font-mono text-white/30 uppercase tracking-widest mb-16 text-center tracking-[0.3em]">Our Three Core Pillars</span>
+              <div id="services-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 w-full">
+
+                <!-- Pillar 1 -->
+                <div class="service-grid-card group relative w-full h-[50vh] md:h-[65vh] lg:h-[75vh] rounded-3xl overflow-hidden border border-white/10 bg-[#0A0A0A] hover:bg-[#0A0A0A] transition-colors duration-700 cursor-default">
+                  <div class="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent z-10"></div>
+                  <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#3B82F6] opacity-[0.03] group-hover:opacity-[0.12] blur-[100px] rounded-full transition-opacity duration-700 pointer-events-none z-0"></div>
+                  <div class="absolute top-8 left-8 z-20 font-serif text-6xl text-white/5 group-hover:text-white/10 transition-colors duration-700">01</div>
+                  <div class="absolute top-8 right-8 z-20 text-white/20 group-hover:text-[#3B82F6] transition-colors duration-700 transform group-hover:scale-110">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                  </div>
+                  <div class="absolute bottom-10 left-8 right-8 z-20 flex flex-col gap-6 transform-gpu transition-all duration-700 group-hover:-translate-y-4">
+                    <h3 class="text-3xl lg:text-4xl xl:text-5xl font-serif text-white leading-tight tracking-tight">Educational Robotics</h3>
+                    <div class="w-full h-px bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-out"></div>
+                    <p class="text-sm md:text-base text-white/50 font-sans leading-relaxed md:opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+                      Inspiring the next generation of innovators with hands-on robotic kits, creative problem-solving, and experiential learning directly aligned with NEP 2020.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="service-grid-card group relative w-full h-[50vh] md:h-[65vh] lg:h-[75vh] rounded-3xl overflow-hidden border border-white/10 bg-[#0A0A0A] hover:bg-[#0A0A0A] transition-colors duration-700 cursor-default">
+                  <div class="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent z-10"></div>
+                  <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#3B82F6] opacity-[0.03] group-hover:opacity-[0.12] blur-[100px] rounded-full transition-opacity duration-700 pointer-events-none z-0"></div>
+                  <div class="absolute top-8 left-8 z-20 font-serif text-6xl text-white/5 group-hover:text-white/10 transition-colors duration-700">02</div>
+                  <div class="absolute top-8 right-8 z-20 text-white/20 group-hover:text-[#3B82F6] transition-colors duration-700 transform group-hover:scale-110">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
+                  </div>
+                  <div class="absolute bottom-10 left-8 right-8 z-20 flex flex-col gap-6 transform-gpu transition-all duration-700 group-hover:-translate-y-4">
+                    <h3 class="text-3xl lg:text-4xl xl:text-5xl font-serif text-white leading-tight tracking-tight">Research &amp; Development</h3>
+                    <div class="w-full h-px bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-out"></div>
+                    <p class="text-sm md:text-base text-white/50 font-sans leading-relaxed md:opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+                      Building groundbreaking robotic hardware, specialized school lab architectures, and continuous curriculum advancements crafted for modern classrooms.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="service-grid-card group relative w-full h-[50vh] md:h-[65vh] lg:h-[75vh] rounded-3xl overflow-hidden border border-white/10 bg-[#0A0A0A] hover:bg-[#0A0A0A] transition-colors duration-700 cursor-default">
+                  <div class="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent z-10"></div>
+                  <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#3B82F6] opacity-[0.03] group-hover:opacity-[0.12] blur-[100px] rounded-full transition-opacity duration-700 pointer-events-none z-0"></div>
+                  <div class="absolute top-8 left-8 z-20 font-serif text-6xl text-white/5 group-hover:text-white/10 transition-colors duration-700">03</div>
+                  <div class="absolute top-8 right-8 z-20 text-white/20 group-hover:text-[#3B82F6] transition-colors duration-700 transform group-hover:scale-110">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v8l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <div class="absolute bottom-10 left-8 right-8 z-20 flex flex-col gap-6 transform-gpu transition-all duration-700 group-hover:-translate-y-4">
+                    <h3 class="text-3xl lg:text-4xl xl:text-5xl font-serif text-white leading-tight tracking-tight">Automation &amp; AI</h3>
+                    <div class="w-full h-px bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-out"></div>
+                    <p class="text-sm md:text-base text-white/50 font-sans leading-relaxed md:opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out">
+                      Bridging the gap between human potential and machine intelligence through practical computer vision, machine learning, and autonomous robotics projects.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- Complete Services Directory Section -->
+          <section id="services" class="w-full bg-[#050505] text-white py-32 border-t border-white/10 min-h-screen">
+            <div class="px-6 md:px-24 mb-24 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-6">
+              <h2 class="text-5xl md:text-8xl font-serif tracking-tight">Turnkey<br/><span class="italic text-white/40">Services.</span></h2>
+              <p class="text-white/50 font-sans max-w-sm text-lg leading-relaxed pb-2">
+                Comprehensive solutions provided to partner schools — from hardware and dedicated educators to annual championships.
+              </p>
+            </div>
+            <div class="px-6 md:px-24 max-w-7xl mx-auto flex flex-col">
+              <div class="flex border-b border-white/20 pb-4 mb-4 text-xs font-mono text-white/40 uppercase tracking-widest px-4">
+                <div class="w-16">ID</div>
+                <div class="flex-1">Service Offering</div>
+                <div class="hidden md:block w-1/3">Provision Scope</div>
+                <div class="w-24 text-right">Standard</div>
+              </div>
+
+              <!-- Service Row 1 -->
+              <div class="group flex items-center border-b border-white/10 py-8 md:py-10 px-4 hover:bg-white/5 transition-colors duration-500 cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-linear-to-r from-[#3B82F6]/0 via-[#3B82F6]/5 to-[#3B82F6]/0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 pointer-events-none"></div>
+                <div class="w-16 text-sm font-mono text-white/30 group-hover:text-white/80 transition-colors z-10">01</div>
+                <div class="flex-1 z-10">
+                  <h3 class="text-3xl md:text-5xl font-serif text-white/70 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 transform-gpu">Dedicated Professional Trainer</h3>
+                </div>
+                <div class="hidden md:block w-1/3 text-lg font-sans font-light text-white/40 group-hover:text-white/80 transition-colors z-10">On-Campus Certified Instructor</div>
+                <div class="w-24 text-right text-sm font-mono text-white/40 group-hover:text-white/90 transition-colors z-10">Full-Time</div>
+              </div>
+
+              <!-- Service Row 2 -->
+              <div class="group flex items-center border-b border-white/10 py-8 md:py-10 px-4 hover:bg-white/5 transition-colors duration-500 cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-linear-to-r from-[#3B82F6]/0 via-[#3B82F6]/5 to-[#3B82F6]/0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 pointer-events-none"></div>
+                <div class="w-16 text-sm font-mono text-white/30 group-hover:text-white/80 transition-colors z-10">02</div>
+                <div class="flex-1 z-10">
+                  <h3 class="text-3xl md:text-5xl font-serif text-white/70 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 transform-gpu">Complete Robotics Equipment</h3>
+                </div>
+                <div class="hidden md:block w-1/3 text-lg font-sans font-light text-white/40 group-hover:text-white/80 transition-colors z-10">Hardware, Sensors &amp; Microcontrollers</div>
+                <div class="w-24 text-right text-sm font-mono text-white/40 group-hover:text-white/90 transition-colors z-10">Practical Kits</div>
+              </div>
+
+              <!-- Service Row 3 -->
+              <div class="group flex items-center border-b border-white/10 py-8 md:py-10 px-4 hover:bg-white/5 transition-colors duration-500 cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-linear-to-r from-[#3B82F6]/0 via-[#3B82F6]/5 to-[#3B82F6]/0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 pointer-events-none"></div>
+                <div class="w-16 text-sm font-mono text-white/30 group-hover:text-white/80 transition-colors z-10">03</div>
+                <div class="flex-1 z-10">
+                  <h3 class="text-3xl md:text-5xl font-serif text-white/70 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 transform-gpu">Turnkey School Lab Setup</h3>
+                </div>
+                <div class="hidden md:block w-1/3 text-lg font-sans font-light text-white/40 group-hover:text-white/80 transition-colors z-10">Complete Robotics &amp; Maker Space</div>
+                <div class="w-24 text-right text-sm font-mono text-white/40 group-hover:text-white/90 transition-colors z-10">Infrastructure</div>
+              </div>
+
+              <!-- Service Row 4 -->
+              <div class="group flex items-center border-b border-white/10 py-8 md:py-10 px-4 hover:bg-white/5 transition-colors duration-500 cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-linear-to-r from-[#3B82F6]/0 via-[#3B82F6]/5 to-[#3B82F6]/0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 pointer-events-none"></div>
+                <div class="w-16 text-sm font-mono text-white/30 group-hover:text-white/80 transition-colors z-10">04</div>
+                <div class="flex-1 z-10">
+                  <h3 class="text-3xl md:text-5xl font-serif text-white/70 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 transform-gpu">NEP 2020 Aligned Syllabus</h3>
+                </div>
+                <div class="hidden md:block w-1/3 text-lg font-sans font-light text-white/40 group-hover:text-white/80 transition-colors z-10">Structured K-12 Progressive Curriculum</div>
+                <div class="w-24 text-right text-sm font-mono text-white/40 group-hover:text-white/90 transition-colors z-10">Grade 1-12</div>
+              </div>
+
+              <!-- Service Row 5 -->
+              <div class="group flex items-center border-b border-white/10 py-8 md:py-10 px-4 hover:bg-white/5 transition-colors duration-500 cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-linear-to-r from-[#3B82F6]/0 via-[#3B82F6]/5 to-[#3B82F6]/0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 pointer-events-none"></div>
+                <div class="w-16 text-sm font-mono text-white/30 group-hover:text-white/80 transition-colors z-10">05</div>
+                <div class="flex-1 z-10">
+                  <h3 class="text-3xl md:text-5xl font-serif text-white/70 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 transform-gpu">Smart Board Integration</h3>
+                </div>
+                <div class="hidden md:block w-1/3 text-lg font-sans font-light text-white/40 group-hover:text-white/80 transition-colors z-10">Interactive Teaching Display Systems</div>
+                <div class="w-24 text-right text-sm font-mono text-white/40 group-hover:text-white/90 transition-colors z-10">Optional</div>
+              </div>
+
+              <!-- Service Row 6 -->
+              <div class="group flex items-center border-b border-white/10 py-8 md:py-10 px-4 hover:bg-white/5 transition-colors duration-500 cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-linear-to-r from-[#3B82F6]/0 via-[#3B82F6]/5 to-[#3B82F6]/0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 pointer-events-none"></div>
+                <div class="w-16 text-sm font-mono text-white/30 group-hover:text-white/80 transition-colors z-10">06</div>
+                <div class="flex-1 z-10">
+                  <h3 class="text-3xl md:text-5xl font-serif text-white/70 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 transform-gpu">Annual Competitions &amp; Expos</h3>
+                </div>
+                <div class="hidden md:block w-1/3 text-lg font-sans font-light text-white/40 group-hover:text-white/80 transition-colors z-10">City-Level Robotics Championship</div>
+                <div class="w-24 text-right text-sm font-mono text-white/40 group-hover:text-white/90 transition-colors z-10">Yearly</div>
+              </div>
+
+              <!-- Service Row 7 -->
+              <div class="group flex items-center border-b border-white/10 py-8 md:py-10 px-4 hover:bg-white/5 transition-colors duration-500 cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-linear-to-r from-[#3B82F6]/0 via-[#3B82F6]/5 to-[#3B82F6]/0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 pointer-events-none"></div>
+                <div class="w-16 text-sm font-mono text-white/30 group-hover:text-white/80 transition-colors z-10">07</div>
+                <div class="flex-1 z-10">
+                  <h3 class="text-3xl md:text-5xl font-serif text-white/70 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 transform-gpu">Student Certification</h3>
+                </div>
+                <div class="hidden md:block w-1/3 text-lg font-sans font-light text-white/40 group-hover:text-white/80 transition-colors z-10">Accredited by RoboThinkLab</div>
+                <div class="w-24 text-right text-sm font-mono text-white/40 group-hover:text-white/90 transition-colors z-10">Certified</div>
+              </div>
+
+              <!-- Service Row 8 -->
+              <div class="group flex items-center border-b border-white/10 py-8 md:py-10 px-4 hover:bg-white/5 transition-colors duration-500 cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-linear-to-r from-[#3B82F6]/0 via-[#3B82F6]/5 to-[#3B82F6]/0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 pointer-events-none"></div>
+                <div class="w-16 text-sm font-mono text-white/30 group-hover:text-white/80 transition-colors z-10">08</div>
+                <div class="flex-1 z-10">
+                  <h3 class="text-3xl md:text-5xl font-serif text-white/70 group-hover:text-white group-hover:translate-x-4 transition-all duration-500 transform-gpu">AI &amp; Coding Mastery</h3>
+                </div>
+                <div class="hidden md:block w-1/3 text-lg font-sans font-light text-white/40 group-hover:text-white/80 transition-colors z-10">Machine Learning, Python &amp; Automation</div>
+                <div class="w-24 text-right text-sm font-mono text-white/40 group-hover:text-white/90 transition-colors z-10">Hands-on</div>
+              </div>
+
+              <div class="mt-16 flex justify-center w-full">
+                <a href="#contact" class="proposal-cta-btn">Request School Partnership Proposal &rarr;</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Why Partner With Us / Institutional Goals -->
+          <section id="goals" class="w-full bg-[#050505] text-white py-32 md:py-48 border-t border-white/5 relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-24">
+              <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-white/30 uppercase tracking-widest mb-4 block">Institutional Advantage</span>
+                <h2 class="text-4xl md:text-6xl font-serif">Why Partner With Us?</h2>
+                <p class="text-white/50 mt-6 font-sans font-light text-lg">
+                  Designed specifically to elevate school prestige, prepare students for international competition, and satisfy NEP 2020 requirements seamlessly.
+                </p>
+              </div>
+
+              <div class="goals-grid">
+                <!-- Goal Card 1 -->
+                <div class="goal-card">
+                  <div>
+                    <h3>Future-Ready Curriculum</h3>
+                    <p>
+                      We bring cutting-edge content aligned with NEP 2020 and global best practices — ensuring students are not just exam-ready, but life-ready.
+                    </p>
+                  </div>
+                  <span class="goal-tag">NEP 2020 Framework</span>
+                </div>
+
+                <!-- Goal Card 2 -->
+                <div class="goal-card">
+                  <div>
+                    <h3>Teacher Training &amp; Upskilling</h3>
+                    <p>
+                      Empower your faculty with continuous professional development workshops, certifications, and tech-enabled tools for smarter teaching.
+                    </p>
+                  </div>
+                  <span class="goal-tag">Faculty Enablement</span>
+                </div>
+
+                <!-- Goal Card 3 -->
+                <div class="goal-card">
+                  <div>
+                    <h3>Customized Solutions</h3>
+                    <p>
+                      Every school is unique. Our programs are tailor-made to fit your campus specific needs across STEM, AI, robotics, coding, or lab space.
+                    </p>
+                  </div>
+                  <span class="goal-tag">Tailored Setup</span>
+                </div>
+
+                <!-- Goal Card 4 -->
+                <div class="goal-card">
+                  <div>
+                    <h3>Affordable &amp; Scalable</h3>
+                    <p>
+                      High impact shouldn’t mean prohibitive cost. We offer flexible models scalable from single campuses to entire educational trusts.
+                    </p>
+                  </div>
+                  <span class="goal-tag">Flexible Investment</span>
+                </div>
+
+                <!-- Goal Card 5 -->
+                <div class="goal-card">
+                  <div>
+                    <h3>Technology That Works</h3>
+                    <p>
+                      Seamless integration with your existing infrastructure. LMS, digital coursework, assessments, and hybrid platforms — fully supported.
+                    </p>
+                  </div>
+                  <span class="goal-tag">Seamless Infrastructure</span>
+                </div>
+
+                <!-- Goal Card 6 -->
+                <div class="goal-card">
+                  <div>
+                    <h3>Proven Measurable Results</h3>
+                    <p>
+                      Backed by data, partner school testimonials, and competition medals. Measurable improvements in student engagement and analytical thinking.
+                    </p>
+                  </div>
+                  <span class="goal-tag">Real Outcomes</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- About Us Section -->
+          <section id="about" class="w-full bg-[#050505] text-white py-32 md:py-48 px-6 md:px-24 border-t border-white/5 relative">
+            <div class="about-layout">
+              <div class="about-content">
+                <span class="text-xs font-mono text-white/30 uppercase tracking-widest mb-6 block">Company Profile</span>
+                <h2 class="text-4xl md:text-6xl font-serif leading-tight mb-8">
+                  Innovate, inspire &amp; <span class="italic text-white/40">transform.</span>
+                </h2>
+                <p class="text-white/70 font-sans text-lg leading-relaxed mb-6">
+                  Robo Think Lab is a forward-thinking robotics and technology enterprise founded by <span class="text-white font-medium">Suryansh Saxena</span> and <span class="text-white font-medium">Subhan Ansari</span> with a mission to inspire and transform the future through intelligent automation.
+                </p>
+                <p class="text-white/50 font-sans leading-relaxed text-base">
+                  We believe robotics is not just about metal and wires — it’s about creating smarter solutions that simplify lives, enhance institutions, and open doors to limitless career possibilities for students.
+                </p>
+              </div>
+
+              <div class="about-cards">
+                <div class="about-card">
+                  <span class="about-card-tag">Leadership &amp; Founders</span>
+                  <h4 class="about-card-title">Suryansh Saxena &amp; Subhan Ansari</h4>
+                  <p class="about-card-desc">Visionaries dedicated to transforming Indian STEAM education through practical robotics.</p>
+                </div>
+
+                <div class="about-card">
+                  <span class="about-card-tag">Campus Laboratory</span>
+                  <h4 class="about-card-title">Kiccha bypass road near Shani mandir, Rudrapur</h4>
+                  <p class="about-card-desc">U.S. Nagar, Uttarakhand - 263153, India</p>
+                </div>
+
+                <div class="about-card">
+                  <span class="about-card-tag">Direct Inquiries</span>
+                  <h4 class="about-card-title">+91 84451 50518 &nbsp;|&nbsp; +91 99276 73746</h4>
+                  <p class="about-card-desc">Available for school demonstrations, lab audits, and on-campus pilot workshops.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Client / School Testimonials Section -->
+          <section id="testimonials" class="w-full bg-[#050505] text-white py-32 md:py-48 flex items-center justify-center relative overflow-hidden border-t border-white/5">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[500px] bg-[#3B82F6]/5 blur-[200px] rounded-full pointer-events-none"></div>
+            <div class="max-w-5xl mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center">
+              <span class="text-xs font-mono text-white/30 uppercase tracking-widest mb-16">School Testimonials</span>
+              <h3 id="testimonial-quote" class="text-3xl md:text-5xl lg:text-6xl font-serif text-white/90 leading-[1.3] md:leading-[1.2] tracking-tight mb-16 flex items-center justify-center will-change-transform h-[200px] md:h-auto">
+                "RoboThinkLab transformed our school's STEM ecosystem. Our students are building autonomous rovers and working AI models with genuine excitement."
+              </h3>
+              <div id="testimonial-author-wrapper" class="flex flex-col items-center gap-3 will-change-transform">
+                <h4 id="testimonial-name" class="text-white font-medium text-sm md:text-base uppercase tracking-widest">School Principal</h4>
+                <span id="testimonial-role" class="text-sm font-sans text-white/40">Premier K-12 Institution</span>
+              </div>
+              <div id="testimonial-dots" class="flex gap-4 mt-16">
+                <button class="w-2 h-2 rounded-full transition-all duration-500 cursor-pointer bg-white scale-125" aria-label="Go to slide 1"></button>
+                <button class="w-2 h-2 rounded-full transition-all duration-500 cursor-pointer bg-white/20 hover:bg-white/50" aria-label="Go to slide 2"></button>
+                <button class="w-2 h-2 rounded-full transition-all duration-500 cursor-pointer bg-white/20 hover:bg-white/50" aria-label="Go to slide 3"></button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Numbers / Impact Counters -->
+          <section id="stats-section" class="w-full bg-[#050505] text-white py-24 md:py-32 border-t border-white/5 border-b border-b-white/5 relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-24 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 text-left md:text-center">
+
+              <div class="flex flex-col gap-2 md:items-center">
+                <h4 class="text-4xl md:text-6xl font-serif tracking-tight text-white mb-2 flex items-baseline md:justify-center">
+                  <span class="text-white/30 text-3xl md:text-5xl mr-1"></span>
+                  <span class="counterData text-[#3B82F6]" data-limit="50">0</span>
+                  <span class="text-white/60">+</span>
+                </h4>
+                <p class="text-xs font-mono text-white/40 uppercase tracking-widest">Schools Partnered</p>
+              </div>
+
+              <div class="flex flex-col gap-2 md:items-center">
+                <h4 class="text-4xl md:text-6xl font-serif tracking-tight text-white mb-2 flex items-baseline md:justify-center">
+                  <span class="text-white/30 text-3xl md:text-5xl mr-1"></span>
+                  <span class="counterData text-[#3B82F6]" data-limit="10000">0</span>
+                  <span class="text-white/60">+</span>
+                </h4>
+                <p class="text-xs font-mono text-white/40 uppercase tracking-widest">Students Trained</p>
+              </div>
+
+              <div class="flex flex-col gap-2 md:items-center">
+                <h4 class="text-4xl md:text-6xl font-serif tracking-tight text-white mb-2 flex items-baseline md:justify-center">
+                  <span class="text-white/30 text-3xl md:text-5xl mr-1"></span>
+                  <span class="counterData text-[#3B82F6]" data-limit="100">0</span>
+                  <span class="text-white/60">+</span>
+                </h4>
+                <p class="text-xs font-mono text-white/40 uppercase tracking-widest">Robotic Labs Deployed</p>
+              </div>
+
+              <div class="flex flex-col gap-2 md:items-center">
+                <h4 class="text-4xl md:text-6xl font-serif tracking-tight text-white mb-2 flex items-baseline md:justify-center">
+                  <span class="text-white/30 text-3xl md:text-5xl mr-1"></span>
+                  <span class="counterData text-[#3B82F6]" data-limit="15">0</span>
+                  <span class="text-white/60">+</span>
+                </h4>
+                <p class="text-xs font-mono text-white/40 uppercase tracking-widest">Competitions Hosted</p>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- FAQ Accordion Section -->
+          <section id="faq" class="w-full bg-[#050505] text-white py-32 border-t border-white/10 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3B82F6] opacity-5 blur-[150px] rounded-full pointer-events-none"></div>
+            <div class="px-6 md:px-24 max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-16 relative z-10">
+              <div class="w-full md:w-1/3">
+                <span class="text-sm font-mono text-white/50 uppercase tracking-widest mb-6 block">FAQ</span>
+                <h2 class="text-4xl md:text-5xl font-serif leading-tight">Frequently<br/> <span class="italic text-white/40">Asked</span></h2>
+                <p class="text-white/50 mt-6 font-sans font-light">
+                  Key answers regarding our school partnership model, robotics equipment, curriculum alignment, and trainer deployments.
+                </p>
+                <a href="#contact" class="inline-flex items-center gap-2 mt-8 text-sm font-mono text-white/80 uppercase hover:text-white transition-colors group">
+                  Have more questions?
+                  <span class="w-8 h-[1px] bg-white transform origin-left transition-transform duration-300 group-hover:scale-x-150"></span>
+                </a>
+              </div>
+
+              <div id="faq-list" class="w-full md:w-2/3 flex flex-col">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border-b border-white/10">
+                  <button class="faq-button w-full py-8 text-left flex flex-col cursor-pointer group" aria-expanded="false">
+                    <div class="w-full flex justify-between items-center">
+                      <span class="text-2xl md:text-3xl font-serif text-white/80 group-hover:text-white transition-colors duration-300">What age groups or grades is the curriculum designed for?</span>
+                      <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transform transition-transform duration-500 group-hover:bg-white/10">
+                        <svg class="faq-icon w-5 h-5 text-white transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path class="icon-h" d="M5 12h14"></path>
+                          <path class="icon-v" d="M12 5v14"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                  <div class="faq-answer">
+                    <div>
+                      <p class="pt-2 pb-8 text-lg text-white/50 font-sans font-light leading-relaxed max-w-2xl">
+                        Our curriculum spans K-12 students (Grade 1 through 12). It is organized in modular progressive tiers: starting with foundational STEAM logic and basic block coding for primary students, moving to intermediate electronic circuits and sensors, and graduating to advanced Python, machine learning, IoT, and autonomous robotics for high school students.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border-b border-white/10">
+                  <button class="faq-button w-full py-8 text-left flex flex-col cursor-pointer group" aria-expanded="false">
+                    <div class="w-full flex justify-between items-center">
+                      <span class="text-2xl md:text-3xl font-serif text-white/80 group-hover:text-white transition-colors duration-300">Does RoboThinkLab provide all physical hardware and kits?</span>
+                      <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transform transition-transform duration-500 group-hover:bg-white/10">
+                        <svg class="faq-icon w-5 h-5 text-white transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path class="icon-h" d="M5 12h14"></path>
+                          <path class="icon-v" d="M12 5v14"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                  <div class="faq-answer">
+                    <div>
+                      <p class="pt-2 pb-8 text-lg text-white/50 font-sans font-light leading-relaxed max-w-2xl">
+                        Yes, completely. We provide turnkey laboratory infrastructure including robotics kits, development boards, motors, ultrasonic/IR sensors, microcontrollers, wiring, and smart interactive classroom displays so the school does not need to source components from external vendors.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border-b border-white/10">
+                  <button class="faq-button w-full py-8 text-left flex flex-col cursor-pointer group" aria-expanded="false">
+                    <div class="w-full flex justify-between items-center">
+                      <span class="text-2xl md:text-3xl font-serif text-white/80 group-hover:text-white transition-colors duration-300">Do you assign dedicated on-campus trainers?</span>
+                      <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transform transition-transform duration-500 group-hover:bg-white/10">
+                        <svg class="faq-icon w-5 h-5 text-white transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path class="icon-h" d="M5 12h14"></path>
+                          <path class="icon-v" d="M12 5v14"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                  <div class="faq-answer">
+                    <div>
+                      <p class="pt-2 pb-8 text-lg text-white/50 font-sans font-light leading-relaxed max-w-2xl">
+                        Yes. A certified RoboThinkLab trainer conducts hands-on sessions weekly directly on your school campus. Additionally, we run continuous teacher development workshops so your existing staff can co-teach and facilitate robotics with total confidence.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item border-b border-white/10">
+                  <button class="faq-button w-full py-8 text-left flex flex-col cursor-pointer group" aria-expanded="false">
+                    <div class="w-full flex justify-between items-center">
+                      <span class="text-2xl md:text-3xl font-serif text-white/80 group-hover:text-white transition-colors duration-300">Is the curriculum compliant with NEP 2020?</span>
+                      <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center transform transition-transform duration-500 group-hover:bg-white/10">
+                        <svg class="faq-icon w-5 h-5 text-white transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path class="icon-h" d="M5 12h14"></path>
+                          <path class="icon-v" d="M12 5v14"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                  <div class="faq-answer">
+                    <div>
+                      <p class="pt-2 pb-8 text-lg text-white/50 font-sans font-light leading-relaxed max-w-2xl">
+                        Yes. Our syllabus strictly follows the National Education Policy 2020 guidelines prioritizing experiential learning, vocational skills, computational thinking, and early AI literacy, preparing students for national and international STEM competitions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- Contact / School Partnership Form Section -->
+          <section id="contact" class="w-full bg-[#050505] text-white pt-24 pb-20 relative overflow-hidden border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-6 md:px-24">
+              <div class="mb-12">
+                <span class="text-xs font-mono text-[#3B82F6] uppercase tracking-widest mb-3 block">Get In Touch</span>
+                <h2 class="text-4xl md:text-6xl font-serif">Partner With <span class="italic text-white/40">RoboThinkLab</span></h2>
+                <p class="text-white/50 mt-4 max-w-2xl font-sans text-lg">
+                  Fill out the form below to bring a state-of-the-art Robotics &amp; AI lab to your school or schedule an on-campus demonstration.
+                </p>
+              </div>
+
+              <div class="contact-layout">
+
+                <!-- Left Form Column -->
+                <div class="contact-form-card">
+                  <form id="partner-form">
+                    <div class="form-row-2">
+                      <div>
+                        <label class="form-label">First Name *</label>
+                        <input type="text" name="first_name" required placeholder="First Name" class="form-input" />
+                      </div>
+                      <div>
+                        <label class="form-label">Last Name *</label>
+                        <input type="text" name="last_name" required placeholder="Last Name" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div class="form-row-2">
+                      <div>
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" name="email" required placeholder="principal@school.edu" class="form-input" />
+                      </div>
+                      <div>
+                        <label class="form-label">School / Institution Name *</label>
+                        <input type="text" name="school_name" required placeholder="e.g. St. Xavier's School" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div class="form-row-2">
+                      <div>
+                        <label class="form-label">Role / Designation *</label>
+                        <select name="role" required class="form-select">
+                          <option value="Principal">Principal</option>
+                          <option value="School Owner / Trustee">School Owner / Trustee</option>
+                          <option value="Head of Department">Head of Department (HOD)</option>
+                          <option value="Teacher / Faculty">Teacher / Faculty</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label class="form-label">Phone Number *</label>
+                        <div class="flex gap-2">
+                          <span class="inline-flex items-center px-3 rounded-xl border border-white/10 bg-white/5 text-sm font-mono text-white/70 shrink-0">🇮🇳 +91</span>
+                          <input type="tel" name="phone" required placeholder="98765 43210" class="form-input" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-row-2">
+                      <div>
+                        <label class="form-label">City *</label>
+                        <input type="text" name="city" required placeholder="City" class="form-input" />
+                      </div>
+                      <div>
+                        <label class="form-label">State *</label>
+                        <input type="text" name="state" required placeholder="State / Province" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div class="form-group-full">
+                      <label class="form-label">Message / Requirements</label>
+                      <textarea name="message" rows="4" placeholder="Tell us about your student strength, current labs, or preferred startup timeline..." class="form-textarea"></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit-btn">
+                      Submit School Inquiry &rarr;
+                    </button>
+                    <p id="form-status" class="text-sm font-mono text-[#3B82F6] text-center mt-3 hidden"></p>
+                  </form>
+                </div>
+
+                <!-- Right Contact & Info Column -->
+                <div class="contact-info-card">
+                  <div>
+                    <h3 class="text-2xl font-serif mb-6 text-white">Direct Office Contacts</h3>
+                    
+                    <div class="flex flex-col gap-6 font-sans">
+                      <div>
+                        <h4 class="font-mono text-xs uppercase tracking-widest text-[#3B82F6] mb-1">Campus Address</h4>
+                        <p class="text-white/70 text-sm leading-relaxed">
+                          Kiccha bypass road near Shani mandir,<br/>
+                          Rudrapur, U.S. Nagar, Uttarakhand - 263153, India
+                        </p>
+                      </div>
+
+                      <div>
+                        <h4 class="font-mono text-xs uppercase tracking-widest text-[#3B82F6] mb-1">Call / WhatsApp</h4>
+                        <p class="text-white/90 text-sm font-mono">+91 84451 50518</p>
+                        <p class="text-white/90 text-sm font-mono">+91 99276 73746</p>
+                      </div>
+
+                      <div>
+                        <h4 class="font-mono text-xs uppercase tracking-widest text-[#3B82F6] mb-1">Founders</h4>
+                        <p class="text-white/80 text-sm">Suryansh Saxena &amp; Subhan Ansari</p>
+                      </div>
+
+                      <div>
+                        <h4 class="font-mono text-xs uppercase tracking-widest text-[#3B82F6] mb-3">Social Connect</h4>
+                        <div class="social-links-row">
+                          <a href="https://www.instagram.com/robothinklab?utm_source=qr&igsh=Zzk1dmNwaHVsN3Zl" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                          </a>
+                          <a href="https://www.facebook.com/robothinklab?mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.667 5H18V0h-3.808C10.597 0 9 1.583 9 4.615V8z"/></svg>
+                          </a>
+                          <a href="https://x.com/robothinklab?t=G_ZnirVeRvt1Js-pTS-Mew&s=08" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter)">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!-- Footer Section -->
+          <footer class="w-full bg-[#050505] text-white pt-20 pb-12 relative overflow-hidden border-t border-white/10 border-b-8 border-b-white/5">
+            <div class="px-6 md:px-24 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-4 mb-20 z-10 relative">
+              <div class="col-span-1 md:col-span-1 flex flex-col gap-6">
+                <div class="opacity-90">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="180" height="28" viewBox="0 0 180 28" role="img" aria-label="RoboThinkLab">
+                    <path d="M4 8l10-6 10 6v12l-10 6-10-6V8Z" fill="none" stroke="currentColor" stroke-width="2"></path>
+                    <circle cx="10" cy="14" r="1.5" fill="#3B82F6"></circle>
+                    <circle cx="18" cy="14" r="1.5" fill="#3B82F6"></circle>
+                    <path d="M11 18h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                    <text x="32" y="19" fill="currentColor" font-family="'Inter', ui-sans-serif, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">ROBOTHINK<tspan fill="#3B82F6">LAB</tspan></text>
+                  </svg>
+                </div>
+                <p class="text-white/40 font-sans text-sm leading-relaxed max-w-xs">
+                  A forward-thinking robotics and AI education company founded by Suryansh Saxena and Subhan Ansari with a vision to innovate, inspire, and transform the future.
+                </p>
+              </div>
+
+              <div class="col-span-1 flex flex-col gap-4">
+                <h4 class="font-mono text-xs uppercase tracking-widest text-[#3B82F6] mb-2">Navigation</h4>
+                <a href="#agency" class="text-white/60 hover:text-white font-sans text-sm transition-colors">Home</a>
+                <a href="#services" class="text-white/60 hover:text-white font-sans text-sm transition-colors">Services</a>
+                <a href="#disciplines" class="text-white/60 hover:text-white font-sans text-sm transition-colors">Disciplines</a>
+                <a href="#goals" class="text-white/60 hover:text-white font-sans text-sm transition-colors">Why Partner</a>
+                <a href="#about" class="text-white/60 hover:text-white font-sans text-sm transition-colors">About Us</a>
+              </div>
+
+              <div class="col-span-1 flex flex-col gap-4">
+                <h4 class="font-mono text-xs uppercase tracking-widest text-[#3B82F6] mb-2">Offerings</h4>
+                <p class="text-white/60 font-sans text-sm">Turnkey School Robotics Labs</p>
+                <p class="text-white/60 font-sans text-sm">NEP 2020 AI Curriculum</p>
+                <p class="text-white/60 font-sans text-sm">Annual Robotics Expos</p>
+                <p class="text-white/60 font-sans text-sm">Student Certifications</p>
+              </div>
+
+              <div class="col-span-1 flex flex-col gap-4">
+                <h4 class="font-mono text-xs uppercase tracking-widest text-[#3B82F6] mb-2">Connect</h4>
+                <p class="text-white/60 font-sans text-sm">+91 84451 50518</p>
+                <p class="text-white/60 font-sans text-sm">+91 99276 73746</p>
+                <p class="text-white/40 font-sans text-sm">Rudrapur, Uttarakhand - 263153</p>
+              </div>
+            </div>
+
+            <div class="px-6 md:px-24 max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 text-xs font-mono text-base tracking-wider relative z-10">
+              <p class="text-white/30">&copy; 2026 RoboThinkLab. All Rights Reserved.</p>
+              <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                <span class="text-white/50 text-sm font-sans font-light">Empowering the Next Generation of Innovators.</span>
+              </div>
+            </div>
+
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen h-[400px] bg-[#3B82F6] opacity-5 blur-[200px] pointer-events-none"></div>
+          </footer>
+
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
