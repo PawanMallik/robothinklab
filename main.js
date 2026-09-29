@@ -466,29 +466,99 @@ const partnerForm = document.getElementById('partner-form');
 const formStatus = document.getElementById('form-status');
 
 if (partnerForm) {
-  partnerForm.addEventListener('submit', (e) => {
+  partnerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = partnerForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerText;
 
-    submitBtn.innerText = "Submitting Inquiry...";
+    submitBtn.innerText = "Sending Inquiry...";
     submitBtn.disabled = true;
+    if (formStatus) {
+      formStatus.classList.remove('hidden', 'text-red-400');
+      formStatus.classList.add('text-[#3B82F6]');
+      formStatus.innerText = "Connecting to mail server...";
+    }
 
-    setTimeout(() => {
+    const formData = new FormData(partnerForm);
+    const dataObj = Object.fromEntries(formData.entries());
+
+    let sent = false;
+    let errorMessage = '';
+
+    // 1. Try sending to Nodemailer Netlify Function endpoint
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dataObj)
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        if (result.success) {
+          sent = true;
+        } else {
+          errorMessage = result.error || 'Failed to send';
+        }
+      } else if (response.status === 404) {
+        // Fallback: Check if hosted on standard PHP environment
+        const phpResponse = await fetch('/contact.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dataObj)
+        });
+        if (phpResponse.ok) {
+          const phpResult = await phpResponse.json();
+          if (phpResult.success) sent = true;
+        }
+      } else {
+        const errJson = await response.json().catch(() => ({}));
+        errorMessage = errJson.error || 'Server error occurred.';
+      }
+    } catch (err) {
+      console.warn('Direct mail function error, falling back to static Netlify form POST:', err);
+    }
+
+    // 2. Fallback: If running purely on static Netlify without functions configured yet
+    if (!sent && !errorMessage) {
+      try {
+        const netlifyResponse = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+        if (netlifyResponse.ok) {
+          sent = true;
+        }
+      } catch (e) {
+        // ignore
+      }
+    }
+
+    if (sent) {
       partnerForm.reset();
-      submitBtn.innerText = "Inquiry Sent Successfully!";
-      submitBtn.classList.add('bg-[#3B82F6]', 'text-white');
+      submitBtn.innerText = "✓ Inquiry Sent Successfully!";
+      submitBtn.classList.add('bg-green-600', 'text-white');
       if (formStatus) {
-        formStatus.classList.remove('hidden');
-        formStatus.innerText = "✓ Thank you! Our school robotics coordinator will reach out to your institution within 24 hours.";
+        formStatus.classList.remove('hidden', 'text-red-400');
+        formStatus.classList.add('text-green-400');
+        formStatus.innerText = "✓ Thank you! We have received your inquiry and sent the notification directly to our team inbox.";
       }
 
       setTimeout(() => {
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
-        submitBtn.classList.remove('bg-[#3B82F6]', 'text-white');
-      }, 5000);
-    }, 800);
+        submitBtn.classList.remove('bg-green-600', 'text-white');
+      }, 6000);
+    } else {
+      submitBtn.innerText = "Retry Submission";
+      submitBtn.disabled = false;
+      if (formStatus) {
+        formStatus.classList.remove('hidden', 'text-green-400');
+        formStatus.classList.add('text-red-400');
+        formStatus.innerText = errorMessage || "Unable to send right now. Please email us directly or check SMTP configuration.";
+      }
+    }
   });
 }
 
